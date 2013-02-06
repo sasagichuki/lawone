@@ -47,7 +47,7 @@ $('#myPage').live('pageinit', function(event) {
 	
 	
 	$('#overlay').live('click', function()  {
-    	$(this).fadeOut("slow", function() {
+    	$(this).fadeOut("fast", function() {
 			$(this).remove();
 			$('#hide').hide('fast', function() {});
 			$('#show_menu').show('fast', function() {});
