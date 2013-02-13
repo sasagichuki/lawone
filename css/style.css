@@ -73,7 +73,7 @@ color: #FAFAFA;
 /* side bar*/
 .navigation{
 	float:left;
-	width: 26%;
+	width: 30%;
 	height:100%;
 	/*margin-left: 10px;*/
 	/*background:#E5E5E5;*/
@@ -83,23 +83,31 @@ color: #FAFAFA;
 	display: block;
 	z-index: 0;
 	padding-bottom: 3em;
-	position: fixed;
+	position: absolute;
 	/*padding-right: 10px;*/
 	margin-top: -15px;
 }
 
 .navigation #navbar{
 	padding-right:15px;
-	padding-top: 3px
+	padding-top: 3px;
+	padding-left:15px
+}
+
+.navigation .ui-listview{
+	padding-right:15px;
+	padding-top: 3px;
+	padding-left:15px;
 }
 
 #detail{
 	background-color:#dadada;
 	display: block;
-	padding:10px 10px;
-	margin:0px 10px 10px -10px;
+	padding:10px 15px;
+	/* [disabled]margin:0px 10px 10px -10px; */
 	color: #3b86c4;
 	font-size: 9px;
+	margin-bottom: 15px;
 }
 
 #detail img{
@@ -128,30 +136,28 @@ color: #FAFAFA;
 /*content*/
 .content{
 	float:right;
-	width:70%;
+	width:67.9%;
 	padding-bottom: 3em;
+	padding-right: 10px;
+	font-family: Arial, Helvetica, sans-serif, "Myriad Pro";
 }
 
-.content .ui-listview{
-	padding-right:5px;
-	margin: 0;
-}
-
-.content .ui-listview hgroup {
-	/*border-left-width: thin;
-	border-left-style: solid;
-	border-left-color: #CCC;*/
-}
 .content .ui-listview hgroup h1{
 	color:#3b86c4;
-	font-size:12px
+	font-size:14px
 }
 
 .content .ui-listview hgroup h2{
 	color:#000;
-	font-size:10px
+	font-size:12px
 }
 
+.content #notification{position:absolute;font-size:11px;font-weight:bold;padding:.2em .5em;top:50%;margin-top:-.95em;right:40px}
+
+.content .ui-li.ui-btn{
+	margin-top: -20px;
+	padding-left: 5px;
+}
 /* ~~ The footer ~~ */
 .footer {
 	/*height: 44px;*/
@@ -167,11 +173,11 @@ color: #FAFAFA;
 }
 
 /* pop up panel */
-#file_detail-popup {
+#popupPanel-popup {
     right: 0 !important;
     left: auto !important;
 }
-#file_detail {
+#popupPanel {
     width: 500px;
     border: 1px solid #000;
     border-right: none;
@@ -179,11 +185,20 @@ color: #FAFAFA;
 	background: -webkit-gradient(linear, left top, left bottom, from(#E9E9E9), to(#DADADA));
 	background: -moz-linear-gradient(top, #E9E9E9, #DADADA);
     margin: -1px 0;
+	margin-right: 1px;
+	padding-top:2em;
+	padding-right: 1em;
 	font-size:14px;
 	font-weight:bold;
 }
-#file_detail .ui-btn {
-    margin: 2em 15px;
+#popupPanel .ui-btn {
+	margin-left: 15px;
+	
+	
+}
+
+#popupPanel .ui-listview{
+	margin:-15px;
 }
 
 #title{
@@ -385,9 +400,9 @@ color: #FAFAFA;
 
 /* placeholder styling */
 /* all */
-::-webkit-input-placeholder { font-style:italic}
-::-moz-placeholder { font-style:italic } /* firefox 19+ */
-input:-moz-placeholder { font-style:italic }
+::-webkit-input-placeholder { font-style: normal; color:#FAFAFA}
+::-moz-placeholder { font-style: normal; color:#FAFAFA } /* firefox 19+ */
+input:-moz-placeholder { font-style: normal; color:#FAFAFA }
 
 
 /*count*/
@@ -406,6 +421,18 @@ input:-moz-placeholder { font-style:italic }
 	border-radius: 8px;	
 }
 
+.ui-icon-myapp-star {
+	background-image: url(../icons/star.jpg);
+}
+
+
+/*@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+	.ui-icon-myapp-star {
+		background-image: url(../icons/star.jpg);
+		background-size: 18px 18px;
+	}
+	/*...more HD icon rules go here...
+}
 
 @media screen and (-webkit-min-device-pixel-ratio:2),screen and (max--moz-device-pixel-ratio:2)
 {
@@ -413,5 +440,4 @@ input:-moz-placeholder { font-style:italic }
 	font-size:10px;
 }
 }
-
-@media only screen and (min-device-width:768px) and (max-device-width:1024px)
+*/

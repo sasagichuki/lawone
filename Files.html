@@ -4,11 +4,13 @@
 <meta charset="utf-8">
 <!--set viewport height-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--<meta name="viewport" content="width=device-width">-->
 <title>Files</title>
 
 <link rel="shortcut icon" href="icons/logo.png" />
-<link href="jquery-mobile/jquery.mobile-1.0a3.min.css" rel="stylesheet" type="text/css"/>
-<link href="css/style.css" rel="stylesheet" type="text/css">
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="jquery-mobile/jquery.mobile-1.0a3.min.css" rel="stylesheet" type="text/css" />
+
 
 <script src="jquery-mobile/jquery-1.8.2.min.js" type="text/javascript"></script>
 <script src="jquery-mobile/custom.js" type="text/javascript"></script>
@@ -22,7 +24,7 @@
 </head> 
 <body> 
 
-<div data-role="page" id="myPage" class="container" data-theme="d">
+<div data-role="page" id="page_files" class="container myPage" data-theme="d">
 <!--header-->
     <div id="header" data-fullscreen="true" data-backbtn="false" data-tap-toggle="false" data-role="header">
     	
@@ -61,11 +63,11 @@
 
         <div class="navigation">
         	<div id="detail">
-            	<input type="search" name="search" id="search-basic" value="" data-theme="a"/>
+            	<input type="search" name="search" id="search" placeholder="Search" data-theme="a" data-iconpos="right"/>
             </div>
             <div class="clear"></div>
               <ul data-role="listview" id="navbar" data-theme="a">
-                <li class="ui-btn-active"><a href="Files.html" rel="external" >My Files</a><span class="ui-li-count">1</span></li>
+                <li class="ui-btn-active ui-state-persist"><a href="Files.html" rel="external" >My Files</a><span class="ui-li-count">1</span></li>
                 <li><a href="#" rel="external">Practice Group</a><span class="ui-li-count">1</span></li>
                 <li><a href="#" rel="external">My Team</a><span class="ui-li-count">1</span></li>
                 <li><a href="#" rel="external">Assigned</a><span class="ui-li-count">1</span></li>
@@ -73,20 +75,37 @@
           </div>	
       
 <!--content-->
-        <div class="content">
-               <ul data-role="listview" class="ui-listview">
-               		<li data-theme="c" class="ui-btn ui-btn-icon-right ui-li ui-li-has-icon ui-btn-up-c">
-                  	<a href="#file_detail" class="ui-link-inherit" data-rel="popup" data-transition="slide" data-position-to="window"><!--<img src="icons/star.png" alt="" class="ui-li-icon ui-li-thumb">-->
-                    <hgroup><h1>File Number:123/ref/2012</h1><h2>Last Update 21/2/2012 | Partner: Melvin Kamau</h2></hgroup>
-                    <span class="ui-li-count ui-btn-up-c ui-btn-corner-all">Notifications 4</span></a><span class="ui-icon ui-icon-arrow-r"></span>
+        <div class="content" id="content">
+               <ul data-role="listview" class="ui-listview" id="file">
+               		<li data-theme="c" class="files">
+                        <a href="#popupPanel" data-rel="popup" data-transition="slide" data-position-to="window"><img src="icons/star.jpg" alt="" class="ui-li-icon ui-li-thumb">
+                        <hgroup><h1 id="fileNumber"></h1><h2 id="fileDetail"></h2></hgroup>
+                        </a>
+                        <span id="notification" class="ui-btn-up-b ui-btn-corner-all">Notifications 4</span>
                    </li>
+                   <li data-theme="c" class="files">
+                        <a href="#popupPanel" data-rel="popup" data-transition="slide" data-position-to="window"><img src="icons/star.jpg" alt="" class="ui-li-icon ui-li-thumb">
+                        <hgroup><h1>File Number:123/ref/2012</h1><h2>Last Update 21/2/2012 | Partner: Melvin Kamau</h2></hgroup>
+                        </a>
+                        <span id="notification" class="ui-btn-up-b ui-btn-corner-all">Notifications 4</span>
+                   </li>
+                   
                  </ul>
+                 
          </div>
 <!--end of class content-->
  
  <!--file details-->     
-        <div data-role="popup" id="file_detail" data-corners="false" data-theme="none" data-shadow="false" data-tolerance="0,0">
-        <!--title-->
+        <div data-role="popup" id="popupPanel" data-corners="false" data-theme="none" data-shadow="false" data-tolerance="0,0">
+        
+         <ul data-role="listview">
+        	<li><a href="document.html" rel="external">Document 1</a></li>
+            <li><a href="#" rel="external">Document 2</a></li>
+            <li><a href="#" rel="external">Document 3</a></li>
+            <li><a href="#" rel="external">Document 4</a></li>
+            <li><a href="#" rel="external">Document 5</a></li>
+        </ul>
+        <!--title
             <div id="title">
                 <hgroup>
                     <h1>File Name asc 556/edf</h1>
@@ -94,7 +113,7 @@
                 </hgroup>
              </div>
         
-         <!--list-->
+         <!--list
             <table class="recordset" cellpadding="2" cellspacing="0">
                 <tbody>
                     <tr>
@@ -134,9 +153,9 @@
                 </tbody>
             </table>
          
-         <!--action-->
+         <!--action
            Actions:
-            <a href="#" data-role="button" data-inline="true" data-mini="true" data-theme="b" data-icon="plus">ADD TO MY FILES</a>
+            <a href="#" data-role="button" data-inline="true" data-mini="true" data-theme="b" data-icon="plus">ADD TO MY FILES</a>-->
             
         </div>
      </div>
@@ -149,13 +168,19 @@
   ---> 
 
 
-</div><!--end of page-->
+</div>
+
+<!--end of page-->
 
     <script type="text/javascript">
-		$( "#file_detail" ).on({
+		$(".myPage").bind('click',function(){
+			$(".files").removeClass('ui-btn-active')
+		});
+			
+		$( "#popupPanel" ).on({
     	popupbeforeposition: function() {
         	var h = $( window ).height();
-			$( "#file_detail" ).css( "height", h );
+			$( "#popupPanel" ).css( "height", h );
     	}
 	});
 	</script>
