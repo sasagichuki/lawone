@@ -355,29 +355,29 @@ color: #FAFAFA;
 
 
 #page1 .ui-content{
-	/*margin-top:20%;
-	margin-right:15%;
-	margin-bottom:15%;
-	margin-left:25%;*/
-	position:absolute;
-	left:30%;
+	margin: 0 auto;
+	background: #fefefe;
+	position: absolute;
+	top: 28%;
+	left: 30%;
+	/*left:30%;
 	right:30%;
-	top:20%;
+	top:20%;*/
 	/* [disabled]bottom:30%; */
-	width:300px;
-	height:350px;
+	width:380px;
+	height:205px;
 	text-align:center;
 	
 	/*cureved coners*/
-	-moz-border-radius: 8px;
-	-webkit-border-radius: 8px;
+	/*-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;*/
 	border-radius: 8px;
-	background image
-	background:#f0f0f0;
-	background-image:-moz-linear-gradient(top, #eee, #ddd);
+	/*background image
+	background:#f0f0f0;*/
+	/*background-image:-moz-linear-gradient(top, #eee, #ddd);
 	background-image:-webkit-gradient(linear, left top, left bottom, color-stop(0, #eee), color-stop(1, #ddd));
 	-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorStr='#eeeeee', EndColorStr='#dddddd')";
-	color: #252525;
+	color: #252525;*/
 }
 
 #login label{
@@ -396,13 +396,6 @@ color: #FAFAFA;
 	margin-right: 20px;
 }
 */
-
-
-/* placeholder styling */
-/* all */
-::-webkit-input-placeholder { font-style: normal; color:#FAFAFA}
-::-moz-placeholder { font-style: normal; color:#FAFAFA } /* firefox 19+ */
-input:-moz-placeholder { font-style: normal; color:#FAFAFA }
 
 
 /*count*/
@@ -424,6 +417,84 @@ input:-moz-placeholder { font-style: normal; color:#FAFAFA }
 .ui-icon-myapp-star {
 	background-image: url(../icons/star.jpg);
 }
+
+/*New styles*/
+
+/*Login background*/
+
+#page1{
+	background: #abcedf url('../images/bg_blue_white_lines.jpg') repeat top left;
+}
+
+/*Login input field */
+
+#page1 #password-field, #user-name{
+	width: 211px;
+	height: 36px;
+	border-radius: 20px;
+	box-shadow: 0px 0px 0px #fff;
+	border: 1px solid #89c7ef;
+	font: 100 18px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	color: #555;
+	background: #f3f8fc url('../icons/user_login.png') no-repeat;
+	background-position: 10px 10px;
+/*	text-indent: 30px;*/
+	padding-left: 35px;
+}
+
+/*icon for password field*/
+
+#page1 #password-field{
+	background: #f5f5f5 url('../icons/key.png') no-repeat;
+	background-position: 10px 10px;
+	
+}
+/*All placeholders*/
+
+::-webkit-input-placeholder {
+   color: #888;
+   font: 100 18px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+/*   text-indent: 30px;*/
+   
+}
+
+/*Disappear on focus*/
+
+:focus::-webkit-input-placeholder{color:transparent;}
+
+.login-button {
+	width: 211px;
+	height: 36px;
+	margin-left: 40px;
+}
+/*login white box*/
+
+#page1 .ui-content{
+	background: #fefefe;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width:380px;
+	height:206px;
+	margin-left: -190px;
+	margin-top:-103px ;
+	text-align:center;
+	border-radius: 8px;
+	box-shadow: 2px 2px 3px #555;
+}
+
+#login label{
+	font-size:24px;
+	font-weight:100	
+}
+
+/*#login input{
+	color:#ff0000;
+}*/
+
+
+
+
 
 
 /*@media only screen and (-webkit-min-device-pixel-ratio: 2) {
